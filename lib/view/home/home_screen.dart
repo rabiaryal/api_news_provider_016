@@ -1,3 +1,4 @@
+import 'package:api_provider_016/config/components/network_image_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:api_provider_016/config/color/color.dart';
 import 'package:api_provider_016/config/components/loadiingWidgets.dart';
@@ -22,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Fetch the news list when the screen initializes
+    
     WidgetsBinding.instance.addPostFrameCallback((_) {
       newsProvider.fetchNewsListApi();
     });
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Consumer<NewsProvider>(builder: (context, value, _) {
           switch (value.newsList.status) {
             case Status.loading:
-              return const Center(child: LoadingWidget()); // Show loading
+              return const Center(child: LoadingWidget()); 
             case Status.completed:
               if (value.newsList.data!.articles!.isEmpty) {
                 return const Center(child: Text('No data found'));
@@ -54,15 +55,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: value.newsList.data!.articles!.length,
                 itemBuilder: (context, index) {
                   final article = value.newsList.data!.articles![index];
-                  return ListTile(
-                    title: Text(article.title ?? 'No title'),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  NewsDetailScreen(article: article)));
-                    },
+                  return Card(
+                    child: ListTile(
+                      title: Text(article.title ?? 'No title'),
+                      leading: NetworkImageWidget(
+                        borderRadius: 6,
+                        
+                        imageUrl: article.urlToImage.toString()
+                        ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    NewsDetailScreen(article: article)));
+                      },
+                    ),
                   );
                 },
               );
@@ -70,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return Center(
                   child: Text('Error: ${value.newsList.message}')); // Show error
             default:
-              return Container(); // Default empty container if no status matches
+              return Container(); 
           }
         }),
       ),

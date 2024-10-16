@@ -2,14 +2,13 @@ import 'package:api_provider_016/config/routes/route_name.dart';
 import 'package:api_provider_016/config/routes/routes.dart';
 
 import 'package:api_provider_016/repository/auth/auth_firebase.dart';
-import 'package:api_provider_016/repository/home_api/home_http_repo.dart';
-import 'package:api_provider_016/repository/home_api/home_repository.dart';
+
 import 'package:api_provider_016/services/services_locator.dart';
 
 import 'package:api_provider_016/view_model/login_view_model.dart';
 import 'package:api_provider_016/view_model/news_api_model.dart';
 import 'package:firebase_core/firebase_core.dart';
-// import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +27,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -44,7 +42,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          initialRoute: RoutesName.home,
+          initialRoute: RoutesName.splash,
           onGenerateRoute: Routes.generateRoute,
         )
 
