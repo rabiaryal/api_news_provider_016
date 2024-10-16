@@ -13,6 +13,10 @@ class HomeHttpApiRepository implements HomeRepository{
   final _apiServices = NetworkApiService() ;
 
   @override
+  
+
+
+
   Future<NewsModel> fetchNewsList()async{
     dynamic response = await _apiServices.getGetApiResponse(AppUrl.baseUrl);
     return response = NewsModel.fromJson(response);
