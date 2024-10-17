@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 class InputEmailWidget extends StatelessWidget {
   final FocusNode emailfocusNode , passwordFocusNode;
   const InputEmailWidget({Key? key ,required this.emailfocusNode , required this.passwordFocusNode}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {

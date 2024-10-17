@@ -1,17 +1,18 @@
 import 'package:api_provider_016/config/components/network_image_widgets.dart';
+import 'package:api_provider_016/view/home/newdetailsscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:api_provider_016/config/color/color.dart';
 import 'package:api_provider_016/config/components/loadiingWidgets.dart';
 import 'package:api_provider_016/data/response/status.dart';
 import 'package:api_provider_016/view/home/widgets/logout_button_widgets.dart';
-
-import 'package:api_provider_016/view/home/newdetailsscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:get_it/get_it.dart';
 import 'package:api_provider_016/view_model/news_api_model.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final String apiUrl; // Accept the URL as a parameter
+
+  const HomeScreen({super.key, required this.apiUrl});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      newsProvider.fetchNewsListApi();
+      newsProvider.fetchNewsListApi(url: widget.apiUrl); 
     });
   }
 
@@ -60,9 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       title: Text(article.title ?? 'No title'),
                       leading: NetworkImageWidget(
                         borderRadius: 6,
-                        
-                        imageUrl: article.urlToImage.toString()
-                        ),
+                        imageUrl: article.urlToImage.toString(),
+                      ),
                       onTap: () {
                         Navigator.push(
                             context,

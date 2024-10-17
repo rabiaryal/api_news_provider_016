@@ -1,8 +1,5 @@
-import 'package:api_provider_016/view/splash/splash_Controller.dart';
+import 'package:api_provider_016/view_model/splash/splash_services.dart';
 import 'package:flutter/material.dart';
-
-
-
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -12,21 +9,19 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-
   SplashServices splashServices = SplashServices();
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
-    splashServices.checkAuthentication(context);
+    splashServices.checkAuthentication(context); // Check authentication status
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Center(
-        child: Text('Splash screen', style: Theme.of(context).textTheme.headlineMedium,),
+      body: Center(
+        child: Text('Splash screen', style: Theme.of(context).textTheme.headlineMedium),
       ),
     );
   }

@@ -15,14 +15,29 @@ class NewsProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> fetchNewsListApi() async {
-    setNewsList(ApiResponse.loading());
 
-    try {
-      final value = await homeRepository!.fetchNewsList();
-      setNewsList(ApiResponse.completed(value));
-    } catch (error) {
-      setNewsList(ApiResponse.error(error.toString()));
-    }
+ Future<void> fetchNewsListApi({required String url}) async {
+  setNewsList(ApiResponse.loading());
+
+  try {
+    final value = await homeRepository!.fetchNewsList(url); // Pass the URL here
+    setNewsList(ApiResponse.completed(value));
+  } catch (error) {
+    setNewsList(ApiResponse.error(error.toString()));
   }
+}
+
+
+
+  // Modify fetchNewsListApi to accept a URL parameter
+  // Future<void> fetchNewsListApi({required String url}) async {
+  //   setNewsList(ApiResponse.loading());
+
+  //   try {
+  //     final value = await homeRepository!.fetchNewsList(url); // Pass the URL to the repository method
+  //     setNewsList(ApiResponse.completed(value));
+  //   } catch (error) {
+  //     setNewsList(ApiResponse.error(error.toString()));
+  //   }
+  // }
 }

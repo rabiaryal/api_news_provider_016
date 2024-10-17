@@ -1,13 +1,12 @@
-import 'package:api_provider_016/config/components/rooundbutton.dart';
-import 'package:api_provider_016/config/components/utils.dart';
+
 import 'package:api_provider_016/config/routes/route_name.dart';
 import 'package:api_provider_016/view/login/widgets.dart/input_email_widgets.dart';
 import 'package:api_provider_016/view/login/widgets.dart/input_password_widgets.dart';
-import 'package:api_provider_016/view/login/widgets.dart/login_button_widgets.dart';
+
 import 'package:api_provider_016/view/login/widgets.dart/sign_up_button_widgets.dart';
-import 'package:api_provider_016/view_model/login_view_model.dart';
+
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

@@ -1,12 +1,11 @@
-import 'package:api_provider_016/config/components/rooundbutton.dart';
-import 'package:api_provider_016/config/components/utils.dart';
+
+
 import 'package:api_provider_016/config/routes/route_name.dart';
 import 'package:api_provider_016/view/login/widgets.dart/input_email_widgets.dart';
 import 'package:api_provider_016/view/login/widgets.dart/input_password_widgets.dart';
 import 'package:api_provider_016/view/login/widgets.dart/login_button_widgets.dart';
-import 'package:api_provider_016/view_model/login_view_model.dart';
+
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,18 +15,24 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<LoginScreen> {
-  final TextEditingController _emialController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
 
   ValueNotifier<bool> obscureText = ValueNotifier<bool>(true);
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+    FocusScope.of(context).unfocus(); 
+  });
+    
+  }
+
+  @override
   void dispose() {
     super.dispose();
-    _emialController.dispose();
-    _passwordController.dispose();
+
     emailFocusNode.dispose();
     passwordFocusNode.dispose();
   }

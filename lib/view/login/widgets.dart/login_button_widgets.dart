@@ -36,12 +36,10 @@ class LoginButtonWidget extends StatelessWidget {
 
                 if (provider.errorMessage == null) {
                   Utils.flushBarErrorMessage("Login Successful", context);
-                 
-              
+
                   Navigator.pushNamed(
                     context,
-                    RoutesName.home,
-                    
+                    RoutesName.display,
                   );
                 } else {
                   // Display error message if there is an issue

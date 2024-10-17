@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(
               create: (_) => AuthViewModel(authRepository: Auth())),
-          ChangeNotifierProvider(create: (_) => NewsProvider(homeRepository: getIt())),
+          ChangeNotifierProvider(
+              create: (_) => NewsProvider(homeRepository: getIt())),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          initialRoute: RoutesName.splash,
+          initialRoute: RoutesName.login,
           onGenerateRoute: Routes.generateRoute,
         )
 
