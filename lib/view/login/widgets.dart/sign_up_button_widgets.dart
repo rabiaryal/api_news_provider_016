@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SignUpButtonWidget extends StatelessWidget {
-  const SignUpButtonWidget({Key? key}) : super(key: key);
+  const SignUpButtonWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

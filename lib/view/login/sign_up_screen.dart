@@ -51,7 +51,7 @@ class _HomeScreenState extends State<SignUpScreen> {
             ),
             InputPasswordWidget(focusNode: passwordFocusNode),
             SizedBox(height: height * 0.03),
-            SignUpButtonWidget(),
+            const SignUpButtonWidget(),
             SizedBox(
               height: height * 0.02,
             ),

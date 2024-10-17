@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeErrorWidget extends StatelessWidget {
-  const HomeErrorWidget({Key? key}) : super(key: key);
+  const HomeErrorWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

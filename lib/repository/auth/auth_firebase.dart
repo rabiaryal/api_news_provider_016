@@ -22,7 +22,7 @@ class Auth {
   } catch (e) {
     
     print('Sign in error: $e');  // Debugging line
-    throw e;
+    rethrow;
   }
 }
 

@@ -2,7 +2,7 @@ import 'package:api_provider_016/view_model/splash/splash_services.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
-  const SplashView({Key? key}) : super(key: key);
+  const SplashView({super.key});
 
   @override
   State<SplashView> createState() => _SplashViewState();

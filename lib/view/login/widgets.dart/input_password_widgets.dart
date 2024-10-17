@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 
 class InputPasswordWidget extends StatelessWidget {
-   InputPasswordWidget({Key? key ,required this.focusNode}) : super(key: key);
+   InputPasswordWidget({super.key ,required this.focusNode});
 
   final FocusNode focusNode;
   final ValueNotifier<bool> _obSecurePassword = ValueNotifier<bool>(true);

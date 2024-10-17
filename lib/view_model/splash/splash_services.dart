@@ -12,7 +12,7 @@ class SplashServices {
       // User is logged in, navigate to Home screen
       Timer(const Duration(seconds: 2), () {
         Navigator.pushNamedAndRemoveUntil(
-          context, RoutesName.home, (route) => false
+          context, RoutesName.display, (route) => false
         );
       });
     } else {

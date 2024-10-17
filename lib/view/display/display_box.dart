@@ -28,7 +28,7 @@ class DisplayBox extends StatelessWidget {
       onTap: () {
         onPressed();
         Utils.toastMessage(
-          "Man you are currerntly entering an ${boxTitle}",
+          "Man you are currerntly entering an $boxTitle",
         );
       },
       child: SizedBox(

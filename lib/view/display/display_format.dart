@@ -1,5 +1,6 @@
 import 'package:api_provider_016/config/appurl.dart';
 import 'package:api_provider_016/view/display/display_box.dart';
+import 'package:api_provider_016/view/home/widgets/logout_button_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:api_provider_016/view/home/home_screen.dart'; // Import the HomeScreen
 
@@ -25,6 +26,10 @@ class _DisplayMainUnitState extends State<DisplayMainUnit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        actions:const  [
+          LogoutButtonWidget()
+        ],
         title: const Text("Display"),
       ),
       body: Padding(
@@ -36,7 +41,7 @@ class _DisplayMainUnitState extends State<DisplayMainUnit> {
               children: [
                 DisplayBox(
                   onPressed: () {
-                    functionToCallApi(AppUrl.sportsUrl); // Call API for Sports
+                    functionToCallApi(AppUrl.baseUrl); // Call API for Sports
                   },
                   boxTitle: 'Sports',
                   boxIcon: Image.asset('images/sports.png'),
